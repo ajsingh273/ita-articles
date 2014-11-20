@@ -25,19 +25,19 @@
                                                 });
                                                 function get_results()
                                                 {
-                                                                $.getJSON('http://api.govwizely.com/ita_articles/search', function(d)
+                                                                $.getJSON('http://api.govwizely.com/ita_articles/search?q=Get%20access%20to%20market%20research%20articles%20that%20can%20be%20used%20to%20help%20exporters%20plan%20their%20foreign%20trade%20efforts.', function(d)
                                                                 {
                                                                                 $("#results_container").empty();
                                                                                 for (x in d.results)
                                                                                 {
-                                                                                                row = '<div id="result_' + x + '"><a href="' + d.results[x].id + '.html"><h1 class="result_title">' + d.results[x].title + '</h1></a></div>'
+                                                                                                row = '<div id="result_' + x + '"><h1 class="result_title">' +  d.results[x].title + '</h1><div class="result_content">' + d.results[x].content + '</div>'
                                                                                                 if (x < d.results.length-1)
                                                                                                 {
-                                                                                                                
+                                                                                                               
                                                                                                 }
                                                                                                 row = row + "</div>";
                                                                                                 $("#results_container").append(row);
-                                                                                               
+                                                                                                $("#result_" + x).fadeOut(0).fadeIn(1000);
                                                                                 }
                                                                                
                                                                 });
@@ -47,3 +47,5 @@
     
   </body>
 </html>
+
+

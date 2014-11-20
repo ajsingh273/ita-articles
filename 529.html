@@ -25,19 +25,19 @@
                                                 });
                                                 function get_results()
                                                 {
-                                                                $.getJSON('http://api.govwizely.com/ita_articles/search', function(d)
+                                                                $.getJSON('http://api.govwizely.com/ita_articles/search?q=International%20Logistics%20-%20Home', function(d)
                                                                 {
                                                                                 $("#results_container").empty();
                                                                                 for (x in d.results)
                                                                                 {
-                                                                                                row = '<div id="result_' + x + '"><a href="' + d.results[x].id + '.html"><h1 class="result_title">' + d.results[x].title + '</h1></a></div>'
+                                                                                                row = '<div id="result_' + x + '"><h1 class="result_title">' +  d.results[x].title + '</h1><div class="result_content">' + d.results[x].content + '</div>'
                                                                                                 if (x < d.results.length-1)
                                                                                                 {
-                                                                                                                
+                                                                                                                row = row + '<hr>';
                                                                                                 }
                                                                                                 row = row + "</div>";
                                                                                                 $("#results_container").append(row);
-                                                                                               
+                                                                                                $("#result_" + x).fadeOut(0).fadeIn(1000);
                                                                                 }
                                                                                
                                                                 });
@@ -47,3 +47,4 @@
     
   </body>
 </html>
+
