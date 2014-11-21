@@ -30,7 +30,10 @@
                                                                                 $("#results_container").empty();
                                                                                 for (x in d.results)
                                                                                 {
-                                                                                                row = '<div id="result_' + x + '"><a href="' + d.results[x].id + '.html"><h1 class="result_title">' + d.results[x].title + '</h1></a></div>'
+                                                                                
+                                                                               	 				var domain = d.results[x].trade_url.replace('http://www.export.gov','');
+                                                                                                
+                                                                                                row = '<div id="result_' + x + '"><a href="' + domain + '"><h1 class="result_title">' + d.results[x].title + '</h1></a></div>'
                                                                                                 if (x < d.results.length-1)
                                                                                                 {
                                                                                                                 
